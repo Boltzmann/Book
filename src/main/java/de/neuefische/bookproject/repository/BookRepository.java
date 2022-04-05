@@ -3,22 +3,27 @@ package de.neuefische.bookproject.repository;
 import de.neuefische.bookproject.model.Book;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class BookRepository {
-    public void addBook(Book book) {
+
+    private final Map<String, Book> repo = new HashMap<>();
+
+    public boolean addBook(Book book) {
+        return null == repo.put(book.getIsbn(), book);
     }
 
     public List<Book> getAllBooks() {
-        return null;
+        return new ArrayList<>(repo.values());
     }
 
 
     public Book getBookIsbn(String isbn) {
-        return null;
+        return repo.get(isbn);
     }
 
     public void deleteBookByIsbn(String isbn) {
+        repo.remove(isbn);
     }
 }
