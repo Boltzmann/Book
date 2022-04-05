@@ -7,10 +7,15 @@ import java.util.List;
 
 @Service
 public class BookRepository {
-    public void addBook(Book s) {
+    public void addBook(Book book) {
     }
 
     public List<Book> getAllBooks() {
+        return null;
+    }
+
+
+    public Book getBookIsbn(String isbn) {
         return null;
     }
 }

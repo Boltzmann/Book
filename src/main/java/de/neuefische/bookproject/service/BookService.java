@@ -21,4 +21,8 @@ public class BookService {
     public List<Book> getAllBooks() {
         return bookRepo.getAllBooks();
     }
+
+    public Book getBookIsbn(String isbn) {
+        return bookRepo.getBookIsbn(isbn);
+    }
 }

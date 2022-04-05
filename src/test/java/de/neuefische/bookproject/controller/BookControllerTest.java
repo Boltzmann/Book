@@ -20,13 +20,13 @@ public class BookControllerTest {
 
     @BeforeEach
     void fillBookList(){
-        bookList = asList(new Book(1, "Momo"), new Book(2, "Die unendliche Geschichte"));
+        bookList = asList(new Book("1", "Momo"), new Book("2", "Die unendliche Geschichte"));
     }
 
     @Test
     void addBook(){
-        bookService.addBook(new Book(1, "Momo"));
-        verify(bookRepo).addBook(new Book(1,"Momo"));
+        bookService.addBook(new Book("1", "Momo"));
+        verify(bookRepo).addBook(new Book("1","Momo"));
     }
 
     @Test
@@ -34,12 +34,26 @@ public class BookControllerTest {
         // Given
         when(bookRepo.getAllBooks()).thenReturn(bookList);
         // When: expectation is bookList itself
-        List<Book> expected = asList(new Book(1, "Momo"), new Book(2, "Die unendliche Geschichte"));
+        List<Book> expected = asList(
+                new Book("1", "Momo"),
+                new Book("2", "Die unendliche Geschichte")
+        );
         // Then
         List<Book> actual = bookService.getAllBooks();
 
         verify(bookRepo).getAllBooks();
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getBookIsbn(){
+        // Given
+        when(bookRepo.getBookIsbn("1")).thenReturn(new Book("1", "Momo"));
+        // When
+        Book actual = bookService.getBookIsbn("1");
+        // Then
+        verify(bookRepo).getBookIsbn("1");
+        Assertions.assertEquals(new Book("1", "Momo"), actual);
     }
 
 
