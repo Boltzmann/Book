@@ -56,6 +56,12 @@ public class BookControllerTest {
         Assertions.assertEquals(new Book("1", "Momo"), actual);
     }
 
+    @Test
+    void deleteBookByIsbn(){
+        bookService.deleteBookByIsbn("1");
+        verify(bookRepo).deleteBookByIsbn("1");
+    }
+
 
 
 }

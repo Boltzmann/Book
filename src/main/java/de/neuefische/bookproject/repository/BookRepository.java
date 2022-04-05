@@ -18,4 +18,7 @@ public class BookRepository {
     public Book getBookIsbn(String isbn) {
         return null;
     }
+
+    public void deleteBookByIsbn(String isbn) {
+    }
 }

@@ -25,4 +25,8 @@ public class BookService {
     public Book getBookIsbn(String isbn) {
         return bookRepo.getBookIsbn(isbn);
     }
+
+    public void deleteBookByIsbn(String isbn) {
+        bookRepo.deleteBookByIsbn(isbn);
+    }
 }
