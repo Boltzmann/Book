@@ -1,8 +1,7 @@
-package de.neuefische.bookproject.controller;
+package de.neuefische.bookproject.service;
 
 import de.neuefische.bookproject.model.Book;
 import de.neuefische.bookproject.repository.BookRepository;
-import de.neuefische.bookproject.service.BookService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.*;
 
-public class BookControllerTest {
+public class BookServiceMockedTest {
 
     private final BookRepository bookRepo = mock(BookRepository .class);
     private final BookService bookService = new BookService(bookRepo);
@@ -20,7 +19,10 @@ public class BookControllerTest {
 
     @BeforeEach
     void fillBookList(){
-        bookList = asList(new Book("1", "Momo"), new Book("2", "Die unendliche Geschichte"));
+        bookList = asList(
+                new Book("1", "Momo"),
+                new Book("2", "Die unendliche Geschichte")
+        );
     }
 
     @Test
@@ -61,7 +63,4 @@ public class BookControllerTest {
         bookService.deleteBookByIsbn("1");
         verify(bookRepo).deleteBookByIsbn("1");
     }
-
-
-
 }

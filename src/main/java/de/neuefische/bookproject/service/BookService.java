@@ -14,8 +14,8 @@ public class BookService {
         this.bookRepo = bookRepo;
     }
 
-    public void addBook(Book book){
-        bookRepo.addBook(book);
+    public boolean addBook(Book book){
+        return bookRepo.addBook(book);
     }
 
     public List<Book> getAllBooks() {
