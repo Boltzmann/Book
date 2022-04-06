@@ -1,10 +1,18 @@
-# Default Template MVN Java with tests
-> This is a default template for neue fische projects of cgn-java-22-1
-
+# Book repository
+> Exercise neue fische book project of cgn-java-22-1
+## Development
+Tools used
+1. [Intellij](https://www.jetbrains.com/de-de/idea/download/) 
+2. [maven](https://maven.org),
+3. Java17
+4. [Postman](https://postman.com)
 ## Usage
-Should be
+E.g. clone this repository. Open it in IntelliJ. Start the server by 
+running the ```DefaultWebProjectApplication```. 
+
+In Postman
 ![img.png](img.png)
-and should give with 
+gives  
 ![img_1.png](img_1.png)
 ```
 [
