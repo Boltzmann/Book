@@ -18,13 +18,13 @@ public class BookController {
         this.service = service;
     }
 
-    @RequestMapping("/all")
+    @GetMapping ("/all")
     public List<Book> getAllBooks(){
         return service.getAllBooks();
     }
 
     @PostMapping
-    public boolean addBook(Book book){
+    public boolean addBook(@RequestBody Book book){
         return service.addBook(book);
     }
 
@@ -33,5 +33,10 @@ public class BookController {
         System.out.println(isbn);
         System.out.println(service.getBookIsbn(isbn));
         return service.getBookIsbn(isbn);
+    }
+
+    @DeleteMapping(path="{isbn}")
+    public void deleteBookByIsbn(@PathVariable String isbn){
+        service.deleteBookByIsbn(isbn);
     }
 }
