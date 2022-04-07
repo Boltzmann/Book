@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
@@ -34,6 +35,11 @@ public class BookServiceTest {
         // Then
         List<Book> actual = bookRepo.getAllBooks();
         Assertions.assertEquals(bookList, actual);
+    }
+
+    @Test
+    public void getBook_whenIsbnNotInRepo_giveNoSuchElementException(){
+        Assertions.assertThrowsExactly(NoSuchElementException.class, () -> bookService.getBookIsbn("12121"));
     }
 
 }

@@ -49,7 +49,7 @@ class BookRepositoryTest {
         bookRepo.addBook(new Book("1", "Momo"));
         bookRepo.addBook(new Book("2", "Die unendliche Geschichte"));
         // When
-        Book actual = bookRepo.getBookIsbn("1");
+        Book actual = bookRepo.getBookIsbn("1").orElseThrow();
         // Then
         Assertions.assertEquals(new Book("1", "Momo"), actual);
     }

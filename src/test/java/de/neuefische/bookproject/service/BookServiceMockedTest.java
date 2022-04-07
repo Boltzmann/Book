@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.*;
@@ -50,7 +51,7 @@ public class BookServiceMockedTest {
     @Test
     void getBookIsbn(){
         // Given
-        when(bookRepo.getBookIsbn("1")).thenReturn(new Book("1", "Momo"));
+        when(bookRepo.getBookIsbn("1")).thenReturn(Optional.of(new Book("1", "Momo")));
         // When
         Book actual = bookService.getBookIsbn("1");
         // Then

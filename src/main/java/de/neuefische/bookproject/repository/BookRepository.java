@@ -19,8 +19,8 @@ public class BookRepository {
     }
 
 
-    public Book getBookIsbn(String isbn) {
-        return repo.get(isbn);
+    public Optional<Book> getBookIsbn(String isbn) {
+        return Optional.ofNullable(repo.get(isbn));
     }
 
     public void deleteBookByIsbn(String isbn) {
