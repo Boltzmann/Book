@@ -23,7 +23,7 @@ public class BookRepository {
         return Optional.ofNullable(repo.get(isbn));
     }
 
-    public void deleteBookByIsbn(String isbn) {
-        repo.remove(isbn);
+    public Optional<Book> deleteBookByIsbn(String isbn) {
+        return Optional.ofNullable(repo.remove(isbn));
     }
 }

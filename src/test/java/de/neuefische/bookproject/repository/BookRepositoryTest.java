@@ -60,9 +60,10 @@ class BookRepositoryTest {
         bookRepo.addBook(new Book("1", "Momo"));
         bookRepo.addBook(new Book("2", "Die unendliche Geschichte"));
         // When
+        List<Book> expected = List.of(new Book("2", "Die unendliche Geschichte"));
         // Then
         bookRepo.deleteBookByIsbn("1");
         List<Book> actual = bookRepo.getAllBooks();
-        Assertions.assertEquals(List.of(new Book("2", "Die unendliche Geschichte")), actual);
+        Assertions.assertEquals(expected, actual);
     }
 }

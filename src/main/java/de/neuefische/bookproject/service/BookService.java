@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -27,7 +28,7 @@ public class BookService {
         return bookRepo.getBookIsbn(isbn).orElseThrow(() -> (new NoSuchElementException("Cannot find a book with isbn " + isbn)));
     }
 
-    public void deleteBookByIsbn(String isbn) {
-        bookRepo.deleteBookByIsbn(isbn);
+    public Book deleteBookByIsbn(String isbn) {
+        return bookRepo.deleteBookByIsbn(isbn).orElseThrow(() -> (new NoSuchElementException("Cannot find a book with isbn " + isbn)));
     }
 }

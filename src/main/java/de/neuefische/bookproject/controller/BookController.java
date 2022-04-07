@@ -30,13 +30,11 @@ public class BookController {
 
     @GetMapping(path="{isbn}")
     public Book getBookByIsbn(@PathVariable String isbn){
-        System.out.println(isbn);
-        System.out.println(service.getBookIsbn(isbn));
         return service.getBookIsbn(isbn);
     }
 
     @DeleteMapping(path="{isbn}")
-    public void deleteBookByIsbn(@PathVariable String isbn){
-        service.deleteBookByIsbn(isbn);
+    public Book deleteBookByIsbn(@PathVariable String isbn){
+        return service.deleteBookByIsbn(isbn);
     }
 }

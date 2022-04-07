@@ -42,4 +42,10 @@ public class BookServiceTest {
         Assertions.assertThrowsExactly(NoSuchElementException.class, () -> bookService.getBookIsbn("12121"));
     }
 
+    @Test
+    void deleteBookbyIsbn_whenBookPresent_shouldGetBookAndAllBooksHaveOneLess(){
+        Book expected = new Book("2", "Die unendliche Geschichte");
+        Assertions.assertEquals(expected, bookService.deleteBookByIsbn("2"));
+    }
+
 }

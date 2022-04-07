@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 public class BookServiceMockedTest {
 
-    private final BookRepository bookRepo = mock(BookRepository .class);
+    private final BookRepository bookRepo = mock(BookRepository.class);
     private final BookService bookService = new BookService(bookRepo);
     List<Book> bookList;
 
@@ -60,8 +61,10 @@ public class BookServiceMockedTest {
     }
 
     @Test
-    void deleteBookByIsbn(){
-        bookService.deleteBookByIsbn("1");
+    void deleteBookByIsbn_whenIsbnNotPresent_shouldNoSuchElementException(){
+        Assertions.assertThrowsExactly(NoSuchElementException.class, () -> bookService.deleteBookByIsbn("1"));
         verify(bookRepo).deleteBookByIsbn("1");
     }
+
+
 }
