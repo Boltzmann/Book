@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import BookOverview from './component/BookOverview';
 import Title from "./component/Title";
+import AddBook from "./component/AddBook";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </header>
       <Title/>
         <BookOverview />
+        <AddBook />
     </div>
   );
 }
